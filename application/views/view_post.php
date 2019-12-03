@@ -7,13 +7,13 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            Add Post to Blog
+            View Blog
             <small>Preview</small>
           </h1>
           <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
             <li><a href="#">Blog</a></li>
-            <li class="active">Add Blog</li>
+            <li class="active">View Blog</li>
           </ol>
         </section>
 
@@ -45,40 +45,7 @@
                   <a href="#" class="detail-button"><i class="icon-img"><img src="https://image.flaticon.com/icons/svg/1027/1027567.svg"></i></a>
                 </div> <!-- /.service-block -->
               </div> <!-- /.single-block -->
-              <div class="col-lg-4 single-block aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">
-                <div class="service-block">
-                  <span class="snow-dot"></span>
-                  <span class="snow-dot"></span>
-                  <span class="snow-dot"></span>
-                  <span class="snow-dot"></span>
-                  <span class="snow-dot"></span>
-                  <span class="snow-dot"></span>
-                  <span class="snow-dot"></span>
-                  <div class="hover-content"></div>
-                  <i class="flaticon-value icon-s"></i>
-                  <h5 class="title"><a href="#">Thousand of features and Custom option.</a></h5>
-                  <p>Lorem ipsum dolor si amet, an dusino situ  sint pertinacia constituto, mir es dignsius quo great.</p>
-                  <a href="#" class="detail-button"><i class="icon-img"><img src="https://image.flaticon.com/icons/svg/1467/1467472.svg" width="100%"></i></a>
-                </div> <!-- /.service-block -->
-              </div> <!-- /.single-block -->
-              <div class="col-lg-4 single-block aos-init aos-animate" data-aos="fade-up" data-aos-delay="500">
-                <div class="service-block">
-                  <span class="snow-dot"></span>
-                  <span class="snow-dot"></span>
-                  <span class="snow-dot"></span>
-                  <span class="snow-dot"></span>
-                  <span class="snow-dot"></span>
-                  <span class="snow-dot"></span>
-                  <span class="snow-dot"></span>
-                  <div class="hover-content"></div>
-                  <i class="flaticon-login icon-s"></i>
-                  <h5 class="title"><a href="#">Strong Managment &amp; Security.</a></h5>
-                  <p>Lorem ipsum dolor si amet, an dusino situ  sint pertinacia constituto, mir es dignsius quo great.</p>
-                  <a href="#" class="detail-button"><i class="icon-img">
-                    <img src="https://image.flaticon.com/icons/svg/1467/1467468.svg" width="100%">
-                    </i></a>
-                </div> <!-- /.service-block -->
-              </div> <!-- /.single-block -->
+
             </div> <!-- /.row -->
           </div> <!-- /.inner-wrapper -->
         </div> <!-- /.container -->
