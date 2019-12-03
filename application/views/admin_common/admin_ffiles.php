@@ -39,5 +39,7 @@
 
     <!-- AdminLTE for demo purposes -->
     <script src="../../blog/admin_assets/dist/js/demo.js" type="text/javascript"></script>
+    <script src="../../blog/admin_assets/bootstrap/js/admin_post.js" type="text/javascript"></script>
+    
   </body>
 </html>
