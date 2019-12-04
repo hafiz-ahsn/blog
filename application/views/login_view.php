@@ -27,7 +27,7 @@
       </div><!-- /.login-logo -->
       <div class="login-box-body">
         <p class="login-box-msg">Sign in to post your blog</p>
-        <form action="admin_assets/index2.html" method="post">
+        <form action="<?=base_url()?>login" method="post">
           <div class="form-group has-feedback">
             <input type="text" class="form-control" placeholder="Email"/>
             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>

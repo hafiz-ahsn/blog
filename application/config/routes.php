@@ -55,6 +55,7 @@ $route['addpost'] = 'Admin_Index_Controller/addPost';
 $route['viewpost'] = 'Admin_Index_Controller/viewPost'; 
 $route['login'] = 'Login_Controller/login'; 
 $route['register'] = 'Login_Controller/register'; 
+$route['registerUser'] = 'Login_Controller/registerUser'; 
 $route['store'] = 'Store_Index_Controller/index'; 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
