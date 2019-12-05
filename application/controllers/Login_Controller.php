@@ -7,6 +7,34 @@ class Login_Controller extends CI_Controller {
 	{
 		$this->load->view('login_view');
 	}
+	public function loginUser()
+	{
+		$this->load->model('Register_Model');
+		$data = $_POST;
+		if (!isset($data['user_email']) || empty($data['user_email'])) {
+			$result  = array('status' => 'empty', 'message' => 'Email is required');
+			echo json_encode($result);
+			exit;
+		}
+		if (!isset($data['user_password']) || empty($data['user_password']) ) {
+			$result  = array('status' => 'empty', 'message' => 'Password is required');
+			echo json_encode($result);
+			exit;
+		}
+		$result = $this->Register_Model->verifyuser($data);
+		if($result){
+			$result  = array('status' => 'success', 'message' => 'You are Logged in Successfully.');
+			echo json_encode($result);
+			exit;
+		}
+		else
+		{
+			$result  = array('status' => 'error', 'message' => 'Something went wrong please try again.');
+			echo json_encode($result);
+			exit;
+		}
+		
+	}
 	public function register()
 	{
 		$this->load->view('register_view');
@@ -25,14 +53,14 @@ class Login_Controller extends CI_Controller {
 			echo json_encode($result);
 			exit;
 		}
-		$email = $data['user_email'];
-	    $result = $this->Register_Model->checkEmail($email);
-	    if(($result))
-	    {
+			$email = $data['user_email'];
+		    $result = $this->Register_Model->checkEmail($email);
+		    if(($result))
+		    {
 	        $result  = array('status' => 'exist', 'message' => 'Email is already exist');
 			echo json_encode($result);
 			exit;
-	    }
+	        }
 		if (!isset($data['user_password']) || empty($data['user_password']) ) {
 			$result  = array('status' => 'empty', 'message' => 'Password is required');
 			echo json_encode($result);
@@ -62,4 +90,5 @@ class Login_Controller extends CI_Controller {
 			exit;
 		}
 	}
+
 }

@@ -69,7 +69,7 @@
       $('.required').on('input', function() {
           var input=$(this);
           var is_name=input.val();
-          if(is_name){input.parent.removeClass("has-error");}
+          if(is_name){input.parent().removeClass("has-error");}
           else{input.parent().addClass("has-error");}
         });
     </script>

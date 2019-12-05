@@ -23,26 +23,29 @@
   <body class="login-page">
     <div class="login-box">
       <div class="login-logo">
-        <a href="<?= base_url()?>/admin_assets/index2.html"><b>Admin</b>LTE</a>
+        <a href="<?= base_url()?>/admin"><b>Admin</b>LTE</a>
       </div><!-- /.login-logo -->
       <div class="login-box-body">
         <p class="login-box-msg">Sign in to post your blog</p>
-        <form action="<?=base_url()?>login" method="post">
+        <div class="alert alert-success success" style="display: none;"> You are logged in. and you are redirecting ....</div>
+        <div class="alert alert-danger error" style="display: none;"></div>
+        <div class="alert alert-warning warning" style="display: none;"></div>
+        <form onsubmit="return false;" name="signin">
           <div class="form-group has-feedback">
-            <input type="text" class="form-control" placeholder="Email"/>
+            <input type="text" name="user_email"  class="form-control required" placeholder="Email"/>
             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
           </div>
           <div class="form-group has-feedback">
-            <input type="password" class="form-control" placeholder="Password"/>
+            <input type="password" name="user_password" class="form-control required" placeholder="Password"/>
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
           </div>
           <div class="row">
             <div class="col-xs-12">
-              <button type="submit" class="btn btn-primary btn-block btn-flat">Log In</button>
+              <button type="submit" id="signin" class="btn btn-primary btn-block btn-flat">Log In</button>
             </div><!-- /.col -->
             <p align="center">- OR -</p>
             <div class="col-xs-12">
-              <button type="submit" class="btn btn-primary btn-block btn-flat">Register</button>
+              <button type="submit"  class="btn btn-primary btn-block btn-flat">Register</button>
             </div><!-- /.col -->
           </div>
         </form>
@@ -56,14 +59,65 @@
     <script src="<?= base_url()?>/admin_assets/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
     <!-- iCheck -->
     <script src="<?= base_url()?>/admin_assets/plugins/iCheck/icheck.min.js" type="text/javascript"></script>
-    <script>
-      $(function () {
-        $('input').iCheck({
-          checkboxClass: 'icheckbox_square-blue',
-          radioClass: 'iradio_square-blue',
-          increaseArea: '20%' // optional
+       <script>
+
+      $('.required').on('input', function() {
+          var input=$(this);
+          var is_name=input.val();
+          if(is_name){input.parent().removeClass("has-error");}
+          else{input.parent().addClass("has-error");}
         });
-      });
     </script>
+
+
+    <script type="text/javascript">
+    $(document).ready(function() {
+      $("#signin").click(function(e) {
+
+        var formData = new FormData(document.getElementsByName('signin')[0]);
+
+        // $("#signin").attr('disabled',true);
+        $.ajax({
+          type: "post",
+          url: "<?=base_url()?>loginUser",
+          data: formData,
+          processData: false,
+          contentType: false,
+          dataType: "JSON",
+          success: function(data){
+                if (data.status == 'success') {
+                   $('.warning').hide();
+                    $('.error').hide();
+                    $('.success').show();
+                    setTimeout(function() {
+                        window.location.href = '<?=base_url()?>admin';
+                    }, 2000);
+                }
+                else if(data.status == 'empty')
+                {
+                    $('.error').hide();
+                    $('.warning').show();
+                    $("#signup").attr('disabled',false);
+                    $('.warning').text(data.message);
+                }
+                else if(data.status == 'exist')
+                {
+                    $('.error').hide();
+                    $('.warning').show();
+                    $("#signup").attr('disabled',false);
+                    $('.warning').text(data.message);
+                }
+                else
+                {
+                    $('.warning').hide();
+                    $("#signup").attr('disabled',false);
+                    $('.error').text(data.message);
+                    $('.error').show();
+                }
+          }
+        });
+    });
+  });
+</script>
   </body>
 </html>
