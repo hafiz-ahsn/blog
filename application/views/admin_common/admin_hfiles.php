@@ -1,3 +1,10 @@
+<?php
+if(!$this->session->has_userdata('user')){
+    redirect('login');
+}
+?>
+
+
 <!DOCTYPE html>
 <html>
   <head>

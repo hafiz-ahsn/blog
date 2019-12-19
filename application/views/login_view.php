@@ -45,7 +45,7 @@
             </div><!-- /.col -->
             <p align="center">- OR -</p>
             <div class="col-xs-12">
-              <button type="submit"  class="btn btn-primary btn-block btn-flat">Register</button>
+              <a href="<?= base_url()?>register"   class="btn btn-primary btn-block btn-flat">Register</a>
             </div><!-- /.col -->
           </div>
         </form>

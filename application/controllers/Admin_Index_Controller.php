@@ -7,10 +7,6 @@ class Admin_Index_Controller extends CI_Controller {
 	{
 		$this->load->view('admin_index_view');
 	}
-	public function addPost()
-	{
-		$this->load->view('add_post');
-	}
 	public function viewPost()
 	{
 		$this->load->view('view_post');

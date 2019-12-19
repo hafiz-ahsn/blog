@@ -22,7 +22,10 @@ class Login_Controller extends CI_Controller {
 			exit;
 		}
 		$result = $this->Register_Model->verifyuser($data);
+	
 		if($result){
+			$this->session->set_userdata('user',$data);
+		
 			$result  = array('status' => 'success', 'message' => 'You are Logged in Successfully.');
 			echo json_encode($result);
 			exit;
@@ -33,7 +36,13 @@ class Login_Controller extends CI_Controller {
 			echo json_encode($result);
 			exit;
 		}
-		
+			
+		   	
+	}
+	public function logout()
+	{
+		$this->session->unset_userdata('user');
+		$this->load->view('login_view');
 	}
 	public function register()
 	{
